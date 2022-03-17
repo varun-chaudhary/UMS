@@ -1,0 +1,65 @@
+body {
+    background-image: url(bgb.jpg);
+    background-size: 400px;
+}
+
+
+/* .box {
+    background-color: hsla(0, 0%, 100%, 0.883);
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin: auto;
+    min-width: 620px;
+    height: 900px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+} */
+
+.spi {
+    position: relative;
+    max-width: 300px;
+    width: max-content;
+}
+
+#logo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    top: -100px;
+    left: calc(50% - 100px);
+}
+
+.lgcont {
+    margin-right: 40%;
+    width: 320px;
+    height: 420px;
+    background-color: hsla(0, 0%, 100%, 0.883);
+    border-radius: 10px;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    padding: 70px 30px;
+}
+
+.ets {
+    border: none;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    background: transparent;
+    align-self: center;
+    font-size: larger;
+}
+
+.etl {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
