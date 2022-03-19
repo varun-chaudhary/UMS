@@ -21,7 +21,7 @@ body{
     height: 80%;
     min-height: 335px;
     max-height: 450px;
-     width: 50%;
+     width: 90%;
      min-width: 150px;
      max-width: 460px;
     position:absolute;
@@ -31,6 +31,13 @@ body{
     box-sizing: border-box;
 
 
+}
+
+.sup{
+    position: absolute;
+    
+    min-height: 530px;
+    
 }
 #logo{
     height: 150px;
@@ -51,7 +58,10 @@ body{
     margin: 0px 12%;
     box-sizing: border-box;
 }
-input{
+.scred{
+    top: 30px;
+}
+.ets{
     width: 80%;
     margin: 18% auto;
     padding: 0px;
@@ -59,7 +69,15 @@ input{
     border: none;
     display: block;
     border-bottom: 1px solid rgb(0, 0, 0);
+    background-color: #fb252527;
 }
+.fill{
+    text-align: center;
+    color: #fb2525;
+    border: none;
+    background:none;
+}
+
 .btn{
     width: 60%;
     margin: 24% auto;
@@ -72,7 +90,7 @@ input{
     background: #fb2525;
     color: #fff;    
     border-radius: 50px;
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); */
     cursor: pointer;
 }
 
