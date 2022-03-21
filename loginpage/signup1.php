@@ -1,7 +1,5 @@
 <?php
-
 require_once "config.php";
-
 $insert = false;
 $error = false;
 $username = $password = $fullname = "";
@@ -61,13 +59,12 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
     $stmt = mysqli_prepare($conn, $sql);
     if ($stmt)
     {
-        mysqli_stmt_bind_param($stmt, "sss",  $param_fullname,$param_username, $param_password,);
+        mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_password, $param_fullname);
 
         // Set these parameters
-        $param_fullname = $fullname;
         $param_username = $username;
-        $param_password = password_hash($password, PASSWORD_DEFAULT);
-
+        $param_password = $password;
+        $param_fullname = $fullname;
 
         // Try to execute the query
         if (mysqli_stmt_execute($stmt))
@@ -114,12 +111,16 @@ mysqli_close($conn);
                     echo "<p class='msg msgr'> $username_err <br>  $password_err <br>$fullname_err
                 </p>";
                 }
+                else {
+                    echo " <p class='msg msgr'> You can not sign up right now
+                    </p>";              
+                }
 
             ?>
              </div>
 <?php
            if ($register == false) {
-               echo"<form action='#' id='login' method='post'>
+               echo"<form action='#' id='login'>
                <legend class='cred scred'>
                    <p class='ets fill'>Fill this Form</p>
                    <input class='ets' type='text' name='fname' class='ets' placeholder='Full Name'>
@@ -133,9 +134,6 @@ mysqli_close($conn);
 
                    <b> Sign Up</b> </button>
            </form>";
-           }
-           if ($register==true) {
-               echo"<button class='btn ' id='link_login'><a href='login.php'>Go back to Log In</a></button>";
            }
 ?>          
         </div>

@@ -32,6 +32,12 @@ body{
 
 
 }
+.container{
+    position: absolute;
+    left:50% ; 
+    transform: translateX(-50%);
+    bottom: 60px;
+}
 
 .sup{
     position: absolute;
@@ -59,7 +65,7 @@ body{
     box-sizing: border-box;
 }
 .scred{
-    top: 30px;
+    top: 18px;
 }
 .ets{
     width: 80%;
@@ -78,19 +84,60 @@ body{
     background:none;
 }
 
+
 .btn{
+    position: absolute;
+    z-index: 1000;
+    left: 50%;
+    transform: translateX(-50%);
     width: 60%;
-    margin: 24% auto;
-    padding: 0px;
-    box-sizing: border-box;
-    display: block;
     font-size: 25px;
     outline: none;
     border: none;
     background: #fb2525;
     color: #fff;    
     border-radius: 50px;
-    /* transform: translateY(-5px); */
     cursor: pointer;
+    bottom: 15px;
+}
+
+.msg{
+    text-align: center;
+    font-size: larger;
+}
+
+.msgg{
+    color:green ;
+
+}
+
+.msgr{
+    color: #fb2525;
+}
+
+#link_login{
+    font-size: xx-large;
+}
+a:link{
+    text-decoration: none;
+  }
+
+  a:visited 
+{
+    text-decoration: none; 
+   
+}
+.ref {
+    
+    position: absolute;
+    right: 11%;
+    bottom: 17%;
+    text-decoration: underline!important;
+    color: blue;
+}
+
+#link_login{
+    color: #fff; 
+    
 }
 
