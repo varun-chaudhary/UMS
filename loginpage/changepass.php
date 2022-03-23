@@ -83,6 +83,7 @@ if (isset($_SESSION['uname'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Password</title>
     <!-- this title is temporary -->
+    <link rel = "icon" href ="logo.png"  type = "image/x-icon">
     <link rel="stylesheet" href="landingpagestyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

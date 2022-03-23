@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap");
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  background-color: rgb(219, 182, 213);
+}
+#navigationbar {
+  width: 100vw;
+  background-color: rgb(68, 64, 83);
+  font-weight: bold;
+}
+#navigationbar ul {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1em 0;
+}
+#navigationbar ul li a {
+  text-decoration: none;
+  color: white;
+  padding-right: 30px;
+  position: relative;
+}
+#navigationbar ul li a:hover {
+  color: coral;
+  transition: all ease-in-out 350ms;
+}
+#navigationbar ul li a::after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 0.4em;
+  width: 0%;
+  background-color: coral;
+  bottom: -1.5vh;
+  transition: all ease-in-out 200ms;
+}
+#navigationbar ul li a:hover::after {
+  width: 80%;
+}
+#navigationbar ul li:first-child {
+  margin-right: auto;
+  margin-left: 3vh;
+}
+#navigationbar ul li a img {
+  width: 50px;
+  height: 50px;
+}
+/* ------------- */
+.profile {
+  width: 300px;
+  background-color: coral;
+  font-size: medium;
+  font-weight: 600;
+  padding: 10px 0px 20em 0px;
+  display: block;
+}
+.profilepic {
+  border-radius: 50%;
+  background-color: darkcyan;
+  margin-top: 100px;
+  margin: auto;
+  width: 60%;
+  height: 50%;
+}
+.profilepic img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+.name,
+.userid,
+.roll,
+.programme {
+  padding-left: 10px;
+  font-size: medium;
+  font-family: "Roboto Mono", monospace;
+}
