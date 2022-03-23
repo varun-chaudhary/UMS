@@ -2,32 +2,28 @@
 
 require_once "config.php";
 
-$insert = false;
-$error = false;
+
 $username = $password = $fullname = "";
 $username_err = $password_err = $fullname_err = "";
-$register= false;
+$register = false;
 
 
-if($_SERVER['REQUEST_METHOD'] == "POST"){
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if (empty(trim($_POST["uname"]))) {
         $username_err = "Username cannot be blank";
-    }
-    else {
+    } else {
         $sql = "SELECT regno FROM credentials WHERE uname = ? ";
-        $stmt = mysqli_prepare($conn , $sql);
+        $stmt = mysqli_prepare($conn, $sql);
         if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "s" , $param_username );
+            mysqli_stmt_bind_param($stmt, "s", $param_username);
             $param_username = trim($_POST['uname']);
 
-            if(mysqli_stmt_execute($stmt)){
+            if (mysqli_stmt_execute($stmt)) {
                 mysqli_stmt_store_result($stmt);
-                if(mysqli_stmt_num_rows($stmt) == 1)
-                {
-                    $username_err = "This username is already taken"; 
-                }
-                else{
+                if (mysqli_stmt_num_rows($stmt) == 1) {
+                    $username_err = "This username is already taken";
+                } else {
                     $username = trim($_POST['uname']);
                 }
             }
@@ -37,51 +33,44 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
 
-if (empty(trim($_POST['fname']))){
-    $fullname_err = "Full name cannot be blank";   
-}
-else {
-    $fullname = trim($_POST['fname']);
-}
-
-
-if(empty(trim($_POST['pass']))){
-    $password_err = "Password cannot be blank";
-}
-elseif(strlen(trim($_POST['pass'])) < 5){
-    $password_err = "Password cannot be less than 5 characters";
-}
-else{
-    $password = trim($_POST['pass']);
-}
-
-if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
-{
-    $sql = "INSERT INTO credentials (fname ,uname , pass) VALUES (?, ?,?)";
-    $stmt = mysqli_prepare($conn, $sql);
-    if ($stmt)
-    {
-        mysqli_stmt_bind_param($stmt, "sss",  $param_fullname,$param_username, $param_password,);
-
-        // Set these parameters
-        $param_fullname = $fullname;
-        $param_username = $username;
-        $param_password = password_hash($password, PASSWORD_DEFAULT);
-
-
-        // Try to execute the query
-        if (mysqli_stmt_execute($stmt))
-        {
-            $register = true;
-            // header("location: login.php");
-        }
-        else{
-            $register_err= "Something went wrong... Try after some time";
-        }
+    if (empty(trim($_POST['fname']))) {
+        $fullname_err = "Full name cannot be blank";
+    } else {
+        $fullname = trim($_POST['fname']);
     }
-    mysqli_stmt_close($stmt);
-}
-mysqli_close($conn);
+
+
+    if (empty(trim($_POST['pass']))) {
+        $password_err = "Password cannot be blank";
+    } elseif (strlen(trim($_POST['pass'])) < 5) {
+        $password_err = "Password cannot be less than 5 characters";
+    } else {
+        $password = trim($_POST['pass']);
+    }
+
+    if (empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
+        $sql = "INSERT INTO credentials (fname ,uname , pass) VALUES (?, ?,?)";
+        $stmt = mysqli_prepare($conn, $sql);
+        if ($stmt) {
+            mysqli_stmt_bind_param($stmt, "sss",  $param_fullname, $param_username, $param_password,);
+
+            
+            $param_fullname = $fullname;
+            $param_username = $username;
+            $param_password = password_hash($password, PASSWORD_DEFAULT);
+
+
+           
+            if (mysqli_stmt_execute($stmt)) {
+                $register = true;
+                
+            } else {
+                $register_err = "Try after some time";
+            }
+        }
+        mysqli_stmt_close($stmt);
+    }
+    mysqli_close($conn);
 }
 ?>
 
@@ -105,21 +94,29 @@ mysqli_close($conn);
 
             <img id="logo" src="logo.png" alt="University Logo">
             <div class="container">
-            <?php
-                if ($register==true) {
-                   echo "<p class='msg msgg'> Congragulations!!! You are a student now
+                <?php
+                if ($register == true) {
+                    echo "<p class='msg msgg'> Congragulations!!! You are a student now
                 </p>";
                 }
-                elseif( !empty($username_err) || !empty($password_err) || !empty($fullname_err)){
-                    echo "<p class='msg msgr'> $username_err <br>  $password_err <br>$fullname_err
+                if (!empty($username_err)) {
+                    echo "<p class='msg msgr'> $username_err 
+                </p>";
+                }
+                if (!empty($password_err)) {
+                    echo "<p class='msg msgr'>  $password_err
+                </p>";
+                }
+                if (!empty($fullname_err)) {
+                    echo "<p class='msg msgr'>$fullname_err
                 </p>";
                 }
 
-            ?>
-             </div>
-<?php
-           if ($register == false) {
-               echo"<form action='#' id='login' method='post'>
+                ?>
+            </div>
+            <?php
+            if ($register == false) {
+                echo "<form action='#' id='login' method='post'>
                <legend class='cred scred'>
                    <p class='ets fill'>Fill this Form</p>
                    <input class='ets' type='text' name='fname' class='ets' placeholder='Full Name'>
@@ -133,11 +130,11 @@ mysqli_close($conn);
 
                    <b> Sign Up</b> </button>
            </form>";
-           }
-           if ($register==true) {
-               echo"<button class='btn ' id='link_login'><a href='login.php'>Go back to Log In</a></button>";
-           }
-?>          
+            }
+            if ($register == true) {
+                echo "<button class='btn ' id='link_login'><a href='login.php'>Go back to Log In</a></button>";
+            }
+            ?>
         </div>
     </div>
 
