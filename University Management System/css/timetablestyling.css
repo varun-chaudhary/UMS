@@ -1,0 +1,160 @@
+* {
+  font-family: "Lato", sans-serif;
+}
+body {
+  /* background-image: linear-gradient(
+    to bottom right,
+    rgb(174, 141, 204),
+    rgb(174, 141, 204)
+  ); */
+  background-image: url(../img/uni.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.headings th,
+.content td {
+  border: 2px black solid;
+  text-align: center;
+  background-color: rgb(190, 189, 190);
+  /* this is to add a shadow to the table  */
+  box-shadow: 3px 2px 10px rgb(0, 0, 0);
+}
+.tablecontainer {
+  /* width: min-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-top: ; */
+  /* display: grid;
+  place-items: center; */
+  /* the above commented code can also be used to centre the table on x axis */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.headings th {
+  font-size: 22px;
+  font-weight: bold;
+}
+.content td {
+  font-size: 19px;
+  font-style: normal;
+}
+#navbar ul {
+  list-style: none;
+  margin: -10px;
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+}
+/* #navbar ul li a {
+  text-decoration: none;
+  color: rgb(226, 202, 202);
+  padding-right: 30px;
+  position: relative;
+}
+#navbar ul li a:hover {
+  color: coral;
+  transition: all ease-in-out 350ms;
+}
+#navbar ul li a::after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 0.4em;
+  width: 0%;
+  background-color: coral;
+  bottom: -1.5vh;
+  transition: all ease-in-out 200ms;
+}
+#navbar ul li a:hover::after {
+  width: 80%;
+}
+#navbar ul li:first-child {
+  margin-right: auto;
+  margin-left: 3vh;
+}
+#navbar ul li a img {
+  width: 50px;
+  height: 50px;
+} */
+/* -------------------------------------- */
+
+#navbar ul li:first-child {
+  margin-right: auto;
+  margin-left: 3vh;
+}
+#navbar ul li a img {
+  width: 50px;
+  height: 50px;
+}
+#navbar {
+  width: 99vw;
+  background-color: rgb(68, 64, 83);
+  font-weight: bold;
+}
+/* hamburger css */
+
+/* #navbar ul li a {
+  text-decoration: none;
+  color: rgb(190, 189, 190);
+  padding-right: 30px;
+  position: relative;
+} */
+span {
+  text-decoration: none;
+  color: rgb(190, 189, 190);
+  padding-right: 30px;
+  position: relative;
+  cursor: pointer;
+}
+span:hover {
+  color: coral;
+  transition:0.5s;
+}
+.dropdown {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: maroon;
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+.dropdown-lists {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+.dropdown a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 30px;
+  color: rgb(190, 189, 190);
+  display: block;
+  transition: 0.3s;
+}
+
+.dropdown a:hover {
+  color: rgb(0, 0, 0);
+  transition: 0.4s;
+}
+.dropdown a:focus{
+  color: coral;
+}
+.hamburger{
+  font-size: 20px;
+  padding-right: 50px;
+} 
+.dropdown .buttonX{
+  /* font-size: 20px; */
+  /* padding-left: 49em;
+  padding-top: 20px; */
+  display: flex;
+  
+}
